@@ -348,7 +348,7 @@ function rotarPieza(orientation) {
 			for (j in blocks) {
 				if (! blocks.hasOwnProperty(j)) continue;
 				block = blocks[j];
-				if (overlapped(newBlock, block)) {
+				if (overlaps(newBlock, block)) {
 					overlapped = true;
 					break;
 				}
