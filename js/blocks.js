@@ -216,7 +216,7 @@ function generatePieces() {
 function rotarPieza(orientation) {
 	var newPiece,
 		centralBlock,
-		overlaps,
+		overlapped,
 		i,
 		j,
 		newBlock,
@@ -337,27 +337,27 @@ function rotarPieza(orientation) {
 				newPiece.push(generateBlock(centralBlock.x, centralBlock.y + SIDE_SIZE, centralBlock.color));
 			}
 		}
-		overlaps = false;
+		overlapped = false;
 		for (i in newPiece) {
 			if (! newPiece.hasOwnProperty(i)) continue;
 			newBlock = newPiece[i];
 			if (newBlock.x < 0 || newBlock.x >= canvas.width || newBlock.y >= canvas.height) {
-				overlaps = true;
+				overlapped = true;
 				break;
 			}
 			for (j in blocks) {
 				if (! blocks.hasOwnProperty(j)) continue;
 				block = blocks[j];
-				if (overlaps(newBlock, block)) {
-					overlaps = true;
+				if (overlapped(newBlock, block)) {
+					overlapped = true;
 					break;
 				}
 			}
-			if (overlaps) {
+			if (overlapped) {
 				break;
 			}
 		}
-		if (! overlaps) {
+		if (! overlapped) {
 			currentPiece = newPiece;
 		} else {
 			if (orientation === 'left') {
