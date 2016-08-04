@@ -45,6 +45,7 @@ function addKeyboardEvents() {
 			i,
 			j,
 			piece;
+		e.preventDefault();
 		if (e.keyCode==KEYCODE_LEFT) {
 			movementIsAllowed = true;
 			for (i in currentPiece) {
